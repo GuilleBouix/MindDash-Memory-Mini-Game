@@ -110,7 +110,8 @@ class MindDash:
                                 border_width=0,
                                 corner_radius=50,
                                 border_spacing=5,
-                                hover_color='#002aff')
+                                hover_color='#002aff',
+                                command=lambda: self.menu_ajustes())
         btn_ajustes.grid(row=1, column=0, pady=5, sticky=EW)
 
         btn_salir = CTkButton(button_frame,
@@ -126,6 +127,13 @@ class MindDash:
                              command=lambda: self.press_salir())
         btn_salir.grid(row=2, column=0, pady=5, sticky=EW)
 
+
+    #------------------- MENU AJUSTES -------------------#
+    def menu_ajustes(self):
+        self.main_frame.pack_forget()
+        self.setup_main_frame()
+        self.button_frame = Frame(self.main_frame, bg='#f5f7fc')
+        self.button_frame.place(relx=0.5, rely=0.5, anchor=CENTER)
 
     #------------------- MENU DIFICULTAD -------------------#
     def menu_dificultad(self):
@@ -192,6 +200,20 @@ class MindDash:
                                 hover_color='#002aff',
                                 command=lambda: self.nivel_experto())
         btn_experto.grid(row=4, column=0, pady=5, sticky=EW)
+        
+        btn_reresar = CTkButton(self.button_frame,
+                                text="\uf104 Volver",
+                                font=("Tektur", 25),
+                                bg_color='#f5f7fc',
+                                fg_color='#0047ff',
+                                text_color='white',
+                                border_width=0,
+                                corner_radius=50,
+                                border_spacing=5,
+                                hover_color='#002aff',
+                                command=lambda: self.volver())
+        btn_reresar.grid(row=5, column=0, pady=5, sticky=EW)
+
 
     #------------------- NIVELES -------------------#
     def nivel_facil(self):
@@ -750,10 +772,13 @@ class MindDash:
     def volver(self):
         for widget in self.main_frame.winfo_children():
             widget.destroy()
-        self.menu_dificultad()
+        # Vuelve a configurar el frame principal con el menú principal
+        self.setup_logo()
+        self.setup_buttons()
     
     def press_salir(self):
             self.root.destroy()   
+   
     def mainloop(self):
         self.root.mainloop()
 
