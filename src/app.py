@@ -17,8 +17,9 @@ class MindDash:
         self.window_height = 600
         self.root.geometry(f"{self.window_width}x{self.window_height}")
         self.root.config(bg='#f5f7fc')
+        icon_path = r'D:/Usuario/Desktop/PROGRAMACIÓN/PROYECTOS/MindDash/src/assets/icon.ico'
+        self.root.iconbitmap(default=icon_path)
 
-        
         self.imagen_tk = None
         self.question_imagen_tk = None
         self.cartel_ganador = None
