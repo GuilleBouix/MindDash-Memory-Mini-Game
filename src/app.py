@@ -220,7 +220,7 @@ class MindDash:
         self.main_frame.pack_forget() 
         self.setup_main_frame()
         
-        palabras_mostradas = random.sample(palabras_faciles, 4)
+        palabras_mostradas = random.sample(palabras_faciles, 1)
 
         def inicio_juego():
             palabra_label = Label(self.main_frame, bg=self.fondo, font=("Tektur", 50), fg=self.azul)
@@ -245,8 +245,13 @@ class MindDash:
             nivel_juego.place(relx=0.5, rely=0.7, anchor=CENTER)
 
             self.entry_var = StringVar()
-            self.txt_palabra = Entry(nivel_juego, highlightthickness=1, relief='flat', font=('Tektur', 16), width=30)
-            self.txt_palabra.grid(row=0, columnspan=2, pady=10)
+            self.txt_palabra = CTkEntry(nivel_juego,
+                                        text_color='black',
+                                        font=('Tektur', 20),
+                                        fg_color=('black','white'),
+                                        corner_radius=5,
+                                        border_width=0)
+            self.txt_palabra.grid(row=0, columnspan=2, pady=10,sticky=EW)
             self.txt_palabra.focus()
             def convertir_a_mayusculas(event):
                 texto_ingresado = self.txt_palabra.get().upper()
@@ -344,7 +349,7 @@ class MindDash:
                     else:
                         PERDEDOR()
                     # Configurar el Entry en modo de solo lectura
-                    self.txt_palabra.config(state='readonly')
+                    self.txt_palabra.configure(state='readonly')
                     self.palabras_ingresadas = []  
         inicio_juego()
 
@@ -383,8 +388,13 @@ class MindDash:
             nivel_juego.place(relx=0.5, rely=0.7, anchor=CENTER)
 
             self.entry_var = StringVar()
-            self.txt_palabra = Entry(nivel_juego, highlightthickness=1, relief='flat', font=('Tektur', 16), width=30)
-            self.txt_palabra.grid(row=0, columnspan=2, pady=10)
+            self.txt_palabra = CTkEntry(nivel_juego,
+                                        text_color='black',
+                                        font=('Tektur', 20),
+                                        fg_color=('black','white'),
+                                        corner_radius=5,
+                                        border_width=0)
+            self.txt_palabra.grid(row=0, columnspan=2, pady=10, sticky=EW)
             self.txt_palabra.focus()
             def convertir_a_mayusculas(event):
                 texto_ingresado = self.txt_palabra.get().upper()
@@ -482,7 +492,7 @@ class MindDash:
                     else:
                         PERDEDOR()
                     # Configurar el Entry en modo de solo lectura
-                    self.txt_palabra.config(state='readonly')
+                    self.txt_palabra.configure(state='readonly')
                     self.palabras_ingresadas = []  
         inicio_juego()
 
@@ -521,8 +531,13 @@ class MindDash:
             nivel_juego.place(relx=0.5, rely=0.7, anchor=CENTER)
 
             self.entry_var = StringVar()
-            self.txt_palabra = Entry(nivel_juego, highlightthickness=1, relief='flat', font=('Tektur', 16), width=30)
-            self.txt_palabra.grid(row=0, columnspan=2, pady=10)
+            self.txt_palabra = CTkEntry(nivel_juego,
+                                        text_color='black',
+                                        font=('Tektur', 20),
+                                        fg_color=('black','white'),
+                                        corner_radius=5,
+                                        border_width=0)
+            self.txt_palabra.grid(row=0, columnspan=2, pady=10, sticky=EW)
             self.txt_palabra.focus()
             def convertir_a_mayusculas(event):
                 texto_ingresado = self.txt_palabra.get().upper()
@@ -620,7 +635,7 @@ class MindDash:
                     else:
                         PERDEDOR()
                     # Configurar el Entry en modo de solo lectura
-                    self.txt_palabra.config(state='readonly')
+                    self.txt_palabra.configure(state='readonly')
                     self.palabras_ingresadas = []  
         inicio_juego()
 
@@ -659,8 +674,13 @@ class MindDash:
             nivel_juego.place(relx=0.5, rely=0.7, anchor=CENTER)
 
             self.entry_var = StringVar()
-            self.txt_palabra = Entry(nivel_juego, highlightthickness=1, relief='flat', font=('Tektur', 16), width=30)
-            self.txt_palabra.grid(row=0, columnspan=2, pady=10)
+            self.txt_palabra = CTkEntry(nivel_juego,
+                                        text_color='black',
+                                        font=('Tektur', 20),
+                                        fg_color=('black','white'),
+                                        corner_radius=5,
+                                        border_width=0)
+            self.txt_palabra.grid(row=0, columnspan=2, pady=10, sticky=EW)
             self.txt_palabra.focus()
             def convertir_a_mayusculas(event):
                 texto_ingresado = self.txt_palabra.get().upper()
@@ -758,7 +778,7 @@ class MindDash:
                     else:
                         PERDEDOR()
                     # Configurar el Entry en modo de solo lectura
-                    self.txt_palabra.config(state='readonly')
+                    self.txt_palabra.configure(state='readonly')
                     self.palabras_ingresadas = []  
         inicio_juego()
 
