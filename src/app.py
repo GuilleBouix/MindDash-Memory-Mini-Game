@@ -35,15 +35,29 @@ class MindDash:
         self.btn_reiniciar = None
         self.btn_enviar = None
         self.option_buttons = None
-        self.palabras_ingresadas = []
+        self.palabras_ingresadas = []       
         
         self.setup_window()
+
+    def center_window(self):
+        # Obtener la resolución de la pantalla principal
+        screen_width = self.root.winfo_screenwidth()
+        screen_height = self.root.winfo_screenheight()
+
+        # Calcular las coordenadas x, y para centrar la ventana
+        x = (screen_width - self.window_width) // 2
+        y = (screen_height - self.window_height) // 2
+
+        # Establecer la geometría de la ventana
+        self.root.geometry(f"{self.window_width}x{self.window_height}+{x}+{y}")
 
     def setup_window(self):
         self.setup_main_frame()
         self.setup_logo()
         self.setup_question_logo()
         self.setup_buttons()
+        self.center_window()
+
 
     def setup_main_frame(self):
         self.main_frame = Frame(self.root, bg='#f5f7fc', width=self.window_width, height=self.window_height)
@@ -127,13 +141,8 @@ class MindDash:
                              command=lambda: self.press_salir())
         btn_salir.grid(row=2, column=0, pady=5, sticky=EW)
 
-
-    #------------------- MENU AJUSTES -------------------#
     def menu_ajustes(self):
-        self.main_frame.pack_forget()
-        self.setup_main_frame()
-        self.button_frame = Frame(self.main_frame, bg='#f5f7fc')
-        self.button_frame.place(relx=0.5, rely=0.5, anchor=CENTER)
+        pass
 
     #------------------- MENU DIFICULTAD -------------------#
     def menu_dificultad(self):
@@ -220,7 +229,7 @@ class MindDash:
         self.main_frame.pack_forget() 
         self.setup_main_frame()
         
-        palabras_mostradas = random.sample(palabras_faciles, 1)
+        palabras_mostradas = random.sample(palabras_faciles, 4)
 
         def inicio_juego():
             palabra_label = Label(self.main_frame, bg=self.fondo, font=("Tektur", 50), fg=self.azul)
@@ -788,6 +797,7 @@ class MindDash:
                 widget.destroy()
             self.nivel_intermedio()
 
+
     #------------------- BOTON VOLVER -------------------#
     def volver(self):
         for widget in self.main_frame.winfo_children():
@@ -801,6 +811,7 @@ class MindDash:
    
     def mainloop(self):
         self.root.mainloop()
+
 
 if __name__ == "__main__":
     mind_dash = MindDash()
